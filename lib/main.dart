@@ -7,16 +7,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'Welcome to Flutter',
-      home: new Scaffold(
-        appBar: new AppBar(
-          title: new Text('Welcome to Flutter'),
-        ),
-        body: new Center(
-          //child: new Text('Hello World'), // Replace the highlighted text...
-          child: new RandomWords(),  // With this highlighted text.
-        ),
-      ),
+      title: 'Startup Name Generator',
+      home: new RandomWords(),
     );
   }
 }
@@ -33,8 +25,12 @@ class RandomWordsState extends State<RandomWords> {
 
   @override
   Widget build(BuildContext context) {
-    final wordPair = new WordPair.random();
-    return new Text(wordPair.asPascalCase);
+    return new Scaffold (
+      appBar: new AppBar(
+        title: new Text('Startup Name Generator'),
+      ),
+      body: _buildSuggestions(),
+    );
   }
 
   Widget _buildSuggestions() {
